@@ -36,7 +36,7 @@
                 <i><a href="{% url 'book-update' book.id %}">{{book}}</a></i>
                 &nbsp;&nbsp;(pg {{book.progress}})
             </div>
-            <a class="delete-link" href="{% url 'book-delete' book.id %}">&#128465;</a>
+            <a class="delete-link" href="{% url 'book-delete' book.id %}"><i class="fa">&#xf014;</i></a>
             {% endifequal %}
                 
         </div>
@@ -56,7 +56,7 @@
                 &#9989;
                 <i><a href="{% url 'book-update' book.id %}">{{book}}</a></i>
             </div>
-            <a class="delete-link" href="{% url 'book-delete' book.id %}">&#128465;</a>
+            <a class="delete-link" href="{% url 'book-delete' book.id %}"><i class="fa">&#xf014;</i></a>
             {% endifequal %}
         </div>
 
@@ -75,7 +75,7 @@
                 &#127919;
                 <i><a href="{% url 'book-update' book.id %}">{{book}}</a></i>
             </div>
-            <a class="delete-link" href="{% url 'book-delete' book.id %}">&#128465;</a>
+            <a class="delete-link" href="{% url 'book-delete' book.id %}"><i class="fa">&#xf014;</i></a>
             {% endifequal %}
         </div>
 
