@@ -3,7 +3,7 @@
 
 <div class="header-bar">
     <div>
-        <h1>Hello {{request.user|title}} </h1>
+        <h1>{{request.user|title}}'s GoodShelf &#128218; </h1>
     </div>
 
     {% if request.user.is_authenticated %}
@@ -28,53 +28,56 @@
     <div class="currently">
         <h3>Currently Reading</h3>
     </div>
-    
     {% for book in books %}
         <div class="task-wrapper">
-            {% if book.currently_reading %}
+            {% ifequal book.status 'C' %}
             <div class="book-title">
-                <div class="book-icon"></div>
+                &#128278;
                 <i><a href="{% url 'book-update' book.id %}">{{book}}</a></i>
+                &nbsp;&nbsp;(pg {{book.progress}})
             </div>
-            {% endif %}
+            <a class="delete-link" href="{% url 'book-delete' book.id %}">&#128465;</a>
+            {% endifequal %}
+                
         </div>
-
 
         {% empty %}
         <h3>No books in list</h3>
         {% endfor %}
    
+
     <div class="already">
         <h3>Already Read</h3>
     </div>
     {% for book in books %}
         <div class="task-wrapper">
-            {% if book.read %}
+            {% ifequal book.status 'R' %}
             <div class="book-title">
-                <div class="book-icon"></div>
+                &#9989;
                 <i><a href="{% url 'book-update' book.id %}">{{book}}</a></i>
             </div>
-            {% endif %}
+            <a class="delete-link" href="{% url 'book-delete' book.id %}">&#128465;</a>
+            {% endifequal %}
         </div>
-
 
     {% empty %}
     <h3>No books in list</h3>
     {% endfor %}
 
+    
     <div class="tbr">
         <h3>To be read</h3>
     </div>
     {% for book in books %}
         <div class="task-wrapper">
-            {% if book.to_be_read %}
+            {% ifequal book.status 'T' %}
             <div class="book-title">
-                <div class="book-icon"></div>
+                &#127919;
                 <i><a href="{% url 'book-update' book.id %}">{{book}}</a></i>
             </div>
-            {% endif %}
+            <a class="delete-link" href="{% url 'book-delete' book.id %}">&#128465;</a>
+            {% endifequal %}
         </div>
-
 
     {% empty %}
     <h3>No books in list</h3>

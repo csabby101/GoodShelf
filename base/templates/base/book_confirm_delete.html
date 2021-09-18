@@ -1,0 +1,17 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <a href="{% url 'Books' %}">&#8592; Back</a>
+</div>
+
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        <p>Are you sure you want to remove this book ?</p>
+        <input type="submit" style="background-color:#cf4949; border: 1px solid #757575; color:white; border-radius: 5px; padding: 5px; cursor: pointer" value="Yes, remove book" />
+    </form>
+</div>
+
+
+{% endblock content %}

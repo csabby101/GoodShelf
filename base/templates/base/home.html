@@ -1,0 +1,24 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="header-home">
+    <h1>GoodShelf</h1>
+</div>
+
+<div class="card-body">
+    <p>
+        Welcome to GoodShelf! A readers best friend &#128516;<br>
+        <ul>
+            <li>Manage your Bookshelf on the go.</li>
+            <li>No need to worry about loosing bookmarks anymore.</li>
+            <li>Get all your notes in one place!</li>
+        </ul>
+    </p>
+    <hr>
+    <p><a href="{% url 'login' %} ">Login</a> to your GoodShelf Account.</p>
+    <p>Don't have an account? <a href="{% url 'register' %} ">Register</a> </p>
+    <hr>
+    <p>Made with ❤️ by <a id="sarthak" href="https://www.linkedin.com/in/sarthak-bindal/">@Sarthak</a> </p>
+</div>
+
+{% endblock content %}

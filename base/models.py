@@ -7,13 +7,14 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     progress = models.CharField(max_length=20)
     notes = models.TextField(null=True, blank=True)
-    read = models.BooleanField(default=False)
-    to_be_read = models.BooleanField(default=False)
-    currently_reading = models.BooleanField(default=False)
+    CURRENT_STATUS = (
+        ('C', 'Currently Reading'),
+        ('R', 'Read'),
+        ('T', 'To Be Read'),
+    )
+    status = models.CharField(max_length=1, choices=CURRENT_STATUS, default='T')
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
 
-    class Meta:
-        ordering = ['read']

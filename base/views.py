@@ -2,8 +2,8 @@ from base.models import Book
 from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView
-from django.views.generic import FormView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import FormView, TemplateView
 from django.urls import reverse_lazy
 
 from django.contrib.auth.views import LoginView
@@ -12,6 +12,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
 from .models import Book
+
+class HomeView(TemplateView):
+    template_name = 'base/home.html'
 
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
@@ -62,7 +65,7 @@ class BookDetail(LoginRequiredMixin, DetailView):
 
 class BookCreate(LoginRequiredMixin, CreateView):
     model = Book
-    fields = ['title', 'progress', 'notes', 'read', 'to_be_read', 'currently_reading']
+    fields = ['title', 'progress', 'notes', 'status']
     success_url = reverse_lazy('Books')
 
     def form_valid(self, form):
@@ -71,6 +74,10 @@ class BookCreate(LoginRequiredMixin, CreateView):
 
 class BookUpdate(LoginRequiredMixin, UpdateView):
     model = Book
-    fields = ['title', 'progress', 'notes', 'read', 'to_be_read', 'currently_reading']
+    fields = ['title', 'progress', 'notes' , 'status']
     success_url = reverse_lazy('Books')
 
+class BookDelete(LoginRequiredMixin, DeleteView):
+    model = Book
+    context_object_name = 'book'
+    success_url = reverse_lazy('Books')
