@@ -3,7 +3,7 @@
 
 <div class="header-bar">
     <div>
-        <h1>{{request.user|title}}'s GoodShelf &#128218; </h1>
+        <h1>{{request.user|title}}'s GoodShelf </h1>
     </div>
 
     {% if request.user.is_authenticated %}
@@ -23,7 +23,7 @@
 </div>
 
 
-<div class="task.items-wrapper">
+<div class="task-items-wrapper">
     
     <div class="currently">
         <h3>Currently Reading</h3>
@@ -38,7 +38,6 @@
             </div>
             <a class="delete-link" href="{% url 'book-delete' book.id %}"><i class="fa">&#xf014;</i></a>
             {% endifequal %}
-                
         </div>
 
         {% empty %}
