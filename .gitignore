@@ -1,0 +1,6 @@
+# wanna ignore exe files
+*.in
+*.exe
+*.sqlite3
+
+db.sqlite3
