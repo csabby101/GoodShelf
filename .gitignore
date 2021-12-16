@@ -3,6 +3,7 @@
 *.exe
 *.sqlite
 *.sqlite3
+*.env
 
 .gitignore
 db.sqlite3
