@@ -2,5 +2,7 @@
 *.in
 *.exe
 *.sqlite
+*.sqlite3
 
 .gitignore
+db.sqlite3
