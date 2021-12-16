@@ -1,6 +1,6 @@
 # wanna ignore exe files
 *.in
 *.exe
-*.sqlite3
+*.sqlite
 
-db.sqlite3
+.gitignore
